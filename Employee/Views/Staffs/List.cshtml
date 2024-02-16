@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Employee.Models.Entities.Staff>
+@if(Model is null )
+{
+    <p>empty record</p>
+}
+else
+{
+  <table class="table">
+      
+         <thead>
+             <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>DateOfJoining</th>
+                
+             </tr>
+         </thead>
+
+         <tbody>
+             @foreach(var s in Model)
+             {
+             <tr>
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td>@s.Department</td>
+                    <td>@s.DateOfJoiningFormatted</td>
+                <td>
+                        <a class="btn btn-primary asp-controller="Staffs" asp-action="Edit" asp-route-id="@s.Id">Edit</a>
+                </td>
+             </tr>
+             }
+         </tbody>
+     
+
+  </table>
+}
